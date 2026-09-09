@@ -118,8 +118,9 @@ export default function App() {
             <a href="#program">{t('Program', 'Programs')}</a>
             <a href="#video">{t('Video', 'Video')}</a>
             <a href="#galeri">{t('Galeri', 'Gallery')}</a>
-            <a href="#dokumen">{t('Dokumen', 'Docs')}</a>
-            <a href="#gabung">{t('Gabung', 'Join')}</a>
+            <a href="#tim">{t('Tim', 'Team')}</a>
+            <a href="#faq">FAQ</a>
+            <a href="#kontak">{t('Kontak', 'Contact')}</a>
             <button className="lang-toggle" onClick={() => setLang(lang === 'id' ? 'en' : 'id')}>
               {lang === 'id' ? 'EN' : 'ID'}
             </button>
@@ -135,8 +136,10 @@ export default function App() {
         <a href="#program" onClick={() => setMobileMenu(false)}>{t('Program', 'Programs')}</a>
         <a href="#video" onClick={() => setMobileMenu(false)}>{t('Video', 'Video')}</a>
         <a href="#galeri" onClick={() => setMobileMenu(false)}>{t('Galeri', 'Gallery')}</a>
-        <a href="#dokumen" onClick={() => setMobileMenu(false)}>{t('Dokumen', 'Docs')}</a>
-        <a href="#gabung" onClick={() => setMobileMenu(false)}>{t('Gabung', 'Join')}</a>
+        <a href="#tim" onClick={() => setMobileMenu(false)}>{t('Tim', 'Team')}</a>
+        <a href="#faq" onClick={() => setMobileMenu(false)}>FAQ</a>
+        <a href="#agenda" onClick={() => setMobileMenu(false)}>{t('Agenda', 'Events')}</a>
+        <a href="#kontak" onClick={() => setMobileMenu(false)}>{t('Kontak', 'Contact')}</a>
         <button className="lang-toggle" onClick={() => setLang(lang === 'id' ? 'en' : 'id')}>
           {lang === 'id' ? 'EN' : 'ID'}
         </button>
@@ -784,6 +787,349 @@ export default function App() {
           </div>
         </section>
 
+        {/* TEAM / FOUNDERS */}
+        <section id="tim" style={{ background: 'var(--bg2)' }}>
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('12.5 // Tim Penggagas', '12.5 // Founding Team')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Orang-Orang di Balik', 'The People Behind')} <span className="acc">{t('Gagasan Ini', 'This Vision')}</span></span>
+                </h2>
+                <p className="lead">{t('Tim kecil dengan visi besar untuk masa depan Balikpapan dan Kalimantan Timur.', 'A small team with a big vision for the future of Balikpapan and East Kalimantan.')}</p>
+              </div>
+              <span className="sec-num">SEC.12.5 / TEAM.SYS</span>
+            </div>
+            <div className="team-grid">
+              <div className="team-card reveal">
+                <div className="team-avatar">
+                  <div className="team-initials">SP</div>
+                  <div className="team-status"></div>
+                </div>
+                <div className="team-info">
+                  <h4>Saprani</h4>
+                  <span className="team-role">{t('Penggagas & Inisiator', 'Founder & Initiator')}</span>
+                  <p>{t('Visioner di balik konsep Kampung Inggris Mangrove Margo Mulyo. Menghubungkan pendidikan, ekowisata, dan pemberdayaan masyarakat.', 'Visionary behind the Kampung Inggris Mangrove Margo Mulyo concept. Connecting education, eco-tourism, and community empowerment.')}</p>
+                  <div className="team-links">
+                    <a href="#" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div className="team-card reveal">
+                <div className="team-avatar">
+                  <div className="team-initials">OM</div>
+                  <div className="team-status"></div>
+                </div>
+                <div className="team-info">
+                  <h4>Omar</h4>
+                  <span className="team-role">{t('Co-Founder & Strategist', 'Co-Founder & Strategist')}</span>
+                  <p>{t('Ahli strategi yang memastikan program berjalan efektif dan berkelanjutan untuk masyarakat.', 'Strategic expert ensuring the program runs effectively and sustainably for the community.')}</p>
+                  <div className="team-links">
+                    <a href="#" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Email"><i className="fas fa-envelope"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div className="team-card reveal">
+                <div className="team-avatar team-avatar-open">
+                  <i className="fas fa-plus"></i>
+                </div>
+                <div className="team-info">
+                  <h4>{t('Posisi Terbuka', 'Open Position')}</h4>
+                  <span className="team-role">{t('Ketua Kelompok', 'Group Chairperson')}</span>
+                  <p>{t('Kami mencari pemimpin komunitas yang berdedikasi untuk memimpin program ini.', 'We are looking for a dedicated community leader to lead this program.')}</p>
+                  <a href="#gabung" className="btn btn-o btn-sm">{t('Daftar Sekarang', 'Apply Now')}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section id="testimoni">
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('12.6 // Testimoni', '12.6 // Testimonials')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Kata Mereka', 'What People')} <span className="gold">{t('Tentang Kami', 'Say About Us')}</span></span>
+                </h2>
+              </div>
+              <span className="sec-num">SEC.12.6 / VOICES.DB</span>
+            </div>
+            <div className="testimonials-grid">
+              <div className="testimonial-card reveal">
+                <div className="testimonial-quote">"</div>
+                <p className="testimonial-text">{t('Program ini memberikan harapan baru bagi anak-anak kami. Mereka sekarang lebih percaya diri berbicara Bahasa Inggris dan memiliki wawasan yang lebih luas tentang dunia kerja.', 'This program gives new hope for our children. They are now more confident speaking English and have broader insights about the world of work.')}</p>
+                <div className="testimonial-author">
+                  <div className="testimonial-avatar">HR</div>
+                  <div>
+                    <h5>Hj. Rahmawati</h5>
+                    <span>{t('Tokoh Masyarakat Margo Mulyo', 'Community Leader, Margo Mulyo')}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-card reveal">
+                <div className="testimonial-quote">"</div>
+                <p className="testimonial-text">{t('Sebagai pelaku UMKM, pelatihan digital marketing dan Bahasa Inggris sangat membantu kami menjangkau pasar yang lebih luas. Terima kasih Kampung Inggris!', 'As an MSME actor, the digital marketing and English training greatly helps us reach wider markets. Thank you, Kampung Inggris!')}</p>
+                <div className="testimonial-author">
+                  <div className="testimonial-avatar">BS</div>
+                  <div>
+                    <h5>Budi Santoso</h5>
+                    <span>{t('Pelaku UMKM Kuliner', 'Culinary MSME Owner')}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="testimonial-card reveal">
+                <div className="testimonial-quote">"</div>
+                <p className="testimonial-text">{t('Konsep yang luar biasa! Menggabungkan pendidikan Bahasa Inggris dengan ekowisata mangrove adalah ide brilian yang bisa menjadi model nasional.', 'An extraordinary concept! Combining English education with mangrove eco-tourism is a brilliant idea that could become a national model.')}</p>
+                <div className="testimonial-author">
+                  <div className="testimonial-avatar">DP</div>
+                  <div>
+                    <h5>Dr. Ahmad Prasetyo</h5>
+                    <span>{t('Akademisi Universitas Balikpapan', 'Academic, Balikpapan University')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* PARTNERS */}
+        <section id="mitra" style={{ background: 'var(--bg2)' }}>
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('12.7 // Mitra', '12.7 // Partners')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Berkolaborasi untuk', 'Collaborating for')} <span className="acc">{t('Dampak Lebih Besar', 'Greater Impact')}</span></span>
+                </h2>
+                <p className="lead">{t('Bergabung dengan kami dalam membangun masa depan SDM Balikpapan.', 'Join us in building the future of Balikpapan\'s human resources.')}</p>
+              </div>
+              <span className="sec-num">SEC.12.7 / PARTNERS.NET</span>
+            </div>
+            <div className="partners-grid">
+              <div className="partner-card reveal">
+                <div className="partner-icon">🏛️</div>
+                <h4>{t('Pemerintah', 'Government')}</h4>
+                <p>{t('Pemerintah Kota Balikpapan, Provinsi Kaltim, Kementerian', 'Balikpapan City Gov, East Kalimantan Province, Ministries')}</p>
+              </div>
+              <div className="partner-card reveal">
+                <div className="partner-icon">🎓</div>
+                <h4>{t('Pendidikan', 'Education')}</h4>
+                <p>{t('SMKN 7, Universitas, Lembaga Kursus', 'SMKN 7, Universities, Training Institutions')}</p>
+              </div>
+              <div className="partner-card reveal">
+                <div className="partner-icon">🏭</div>
+                <h4>{t('Industri', 'Industry')}</h4>
+                <p>{t('Perusahaan Maritim, Logistik, Energi, Pariwisata', 'Maritime, Logistics, Energy, Tourism Companies')}</p>
+              </div>
+              <div className="partner-card reveal">
+                <div className="partner-icon">🤝</div>
+                <h4>{t('Komunitas', 'Community')}</h4>
+                <p>{t('Komunitas Lokal, NGO, Relawan, Media', 'Local Communities, NGOs, Volunteers, Media')}</p>
+              </div>
+              <div className="partner-card reveal">
+                <div className="partner-icon">💰</div>
+                <h4>{t('CSR & Donor', 'CSR & Donors')}</h4>
+                <p>{t('Program TJSL, Yayasan, Donatur Individual', 'CSR Programs, Foundations, Individual Donors')}</p>
+              </div>
+              <div className="partner-card reveal">
+                <div className="partner-icon">🌐</div>
+                <h4>{t('Internasional', 'International')}</h4>
+                <p>{t('Organisasi Internasional, Kedutaan, Program Pertukaran', 'International Orgs, Embassies, Exchange Programs')}</p>
+              </div>
+            </div>
+            <div className="partners-cta reveal">
+              <p>{t('Tertarik menjadi mitra? Hubungi kami untuk diskusi kolaborasi.', 'Interested in becoming a partner? Contact us to discuss collaboration.')}</p>
+              <a href="#kontak" className="btn btn-g">{t('Jadi Mitra', 'Become a Partner')} →</a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section id="faq">
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('12.8 // FAQ', '12.8 // FAQ')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Pertanyaan', 'Frequently Asked')} <span className="acc">{t('yang Sering Diajukan', 'Questions')}</span></span>
+                </h2>
+              </div>
+              <span className="sec-num">SEC.12.8 / FAQ.SYS</span>
+            </div>
+            <div className="faq-list">
+              <FAQItem
+                question={t('Apa itu Kampung Inggris Mangrove Margo Mulyo?', 'What is Kampung Inggris Mangrove Margo Mulyo?')}
+                answer={t('Program pengembangan SDM berbasis edukasi, ekowisata, industri, dan pemberdayaan masyarakat di Balikpapan yang menggabungkan pembelajaran Bahasa Inggris dengan konservasi mangrove dan pelatihan industri.', 'An HR development program based on education, eco-tourism, industry, and community empowerment in Balikpapan that combines English learning with mangrove conservation and industrial training.')}
+              />
+              <FAQItem
+                question={t('Siapa yang bisa bergabung?', 'Who can join?')}
+                answer={t('Program terbuka untuk semua kalangan: pelajar, mahasiswa, pekerja, pelaku UMKM, dan masyarakat umum. Tidak ada batasan usia atau latar belakang pendidikan.', 'The program is open to everyone: students, workers, MSME owners, and the general public. There are no age or educational background restrictions.')}
+              />
+              <FAQItem
+                question={t('Berapa biaya untuk bergabung?', 'How much does it cost to join?')}
+                answer={t('Iuran ditetapkan melalui musyawarah anggota. Pelajar mendapat tarif khusus, tutor/relawan gratis, dan anggota dengan keterbatasan ekonomi dapat dibebaskan iuran berdasarkan kesepakatan pengurus.', 'Dues are set through member assemblies. Students get special rates, tutors/volunteers are free, and members with financial constraints can be exempted based on board agreement.')}
+              />
+              <FAQItem
+                question={t('Di mana lokasi program?', 'Where is the program located?')}
+                answer={t('Program berlokasi di Margo Mulyo, Kecamatan Balikpapan Barat, Kota Balikpapan, Kalimantan Timur. Kawasan ini dekat dengan wisata mangrove dan kawasan industri Kariangau.', 'The program is located in Margo Mulyo, West Balikpapan District, Balikpapan City, East Kalimantan. The area is close to mangrove tourism and the Kariangau industrial zone.')}
+              />
+              <FAQItem
+                question={t('Apa saja kegiatan yang tersedia?', 'What activities are available?')}
+                answer={t('English Conversation, English for Work/Industry, Maritime English, English for Tourism, Eco-English, English Day, English Camp, dan pelatihan UMKM & digital marketing.', 'English Conversation, English for Work/Industry, Maritime English, English for Tourism, Eco-English, English Day, English Camp, and MSME & digital marketing training.')}
+              />
+              <FAQItem
+                question={t('Bagaimana cara mendaftar?', 'How to register?')}
+                answer={t('Anda dapat mendaftar melalui formulir di website ini atau datang langsung ke lokasi program. Tim kami akan menghubungi Anda untuk informasi lebih lanjut.', 'You can register through the form on this website or visit the program location directly. Our team will contact you for further information.')}
+              />
+              <FAQItem
+                question={t('Apakah ada sertifikasi?', 'Is there certification?')}
+                answer={t('Ya, peserta yang menyelesaikan program tertentu akan mendapatkan sertifikat partisipasi. Kami juga bekerja sama dengan lembaga sertifikasi untuk TOEFL/IELTS dan kompetensi industri.', 'Yes, participants who complete certain programs will receive participation certificates. We also partner with certification bodies for TOEFL/IELTS and industrial competencies.')}
+              />
+              <FAQItem
+                question={t('Bagaimana saya bisa berkontribusi?', 'How can I contribute?')}
+                answer={t('Anda bisa berkontribusi sebagai tutor/relawan, mitra industri, donatur, atau mitra strategis. Hubungi kami melalui formulir kontak atau WhatsApp untuk diskusi lebih lanjut.', 'You can contribute as a tutor/volunteer, industry partner, donor, or strategic partner. Contact us through the contact form or WhatsApp for further discussion.')}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* EVENTS / NEWS */}
+        <section id="agenda" style={{ background: 'var(--bg2)' }}>
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('12.9 // Agenda & Berita', '12.9 // Events & News')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Kegiatan', 'Upcoming')} <span className="gold">{t('Mendatang', 'Events')}</span></span>
+                </h2>
+              </div>
+              <span className="sec-num">SEC.12.9 / EVENTS.CALENDAR</span>
+            </div>
+            <div className="events-grid">
+              <div className="event-card reveal">
+                <div className="event-date">
+                  <span className="event-day">15</span>
+                  <span className="event-month">{t('JAN', 'JAN')}</span>
+                </div>
+                <div className="event-info">
+                  <span className="event-tag">{t('Workshop', 'Workshop')}</span>
+                  <h4>{t('Pelatihan English Conversation Dasar', 'Basic English Conversation Training')}</h4>
+                  <p><i className="fas fa-map-marker-alt"></i> Margo Mulyo Community Hall</p>
+                  <p><i className="fas fa-clock"></i> 09:00 - 12:00 WITA</p>
+                </div>
+              </div>
+              <div className="event-card reveal">
+                <div className="event-date">
+                  <span className="event-day">22</span>
+                  <span className="event-month">{t('JAN', 'JAN')}</span>
+                </div>
+                <div className="event-info">
+                  <span className="event-tag">{t('English Day', 'English Day')}</span>
+                  <h4>{t('English Day: Mangrove Tour', 'English Day: Mangrove Tour')}</h4>
+                  <p><i className="fas fa-map-marker-alt"></i> Mangrove Margo Mulyo</p>
+                  <p><i className="fas fa-clock"></i> 07:00 - 11:00 WITA</p>
+                </div>
+              </div>
+              <div className="event-card reveal">
+                <div className="event-date">
+                  <span className="event-day">05</span>
+                  <span className="event-month">{t('FEB', 'FEB')}</span>
+                </div>
+                <div className="event-info">
+                  <span className="event-tag">{t('Seminar', 'Seminar')}</span>
+                  <h4>{t('Seminar: Peluang Kerja di Sektor Maritim', 'Seminar: Job Opportunities in Maritime Sector')}</h4>
+                  <p><i className="fas fa-map-marker-alt"></i> SMKN 7 Balikpapan</p>
+                  <p><i className="fas fa-clock"></i> 13:00 - 16:00 WITA</p>
+                </div>
+              </div>
+              <div className="event-card reveal">
+                <div className="event-date">
+                  <span className="event-day">18</span>
+                  <span className="event-month">{t('FEB', 'FEB')}</span>
+                </div>
+                <div className="event-info">
+                  <span className="event-tag">{t('Camp', 'Camp')}</span>
+                  <h4>{t('Eco English Camp Weekend', 'Eco English Camp Weekend')}</h4>
+                  <p><i className="fas fa-map-marker-alt"></i> Mangrove Margo Mulyo</p>
+                  <p><i className="fas fa-clock"></i> 2 Hari (Sabtu-Minggu)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT */}
+        <section id="kontak">
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('13 // Kontak', '13 // Contact')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Hubungi', 'Get in')} <span className="acc">{t('Kami', 'Touch')}</span></span>
+                </h2>
+                <p className="lead">{t('Kami siap menjawab pertanyaan Anda dan mendiskusikan peluang kolaborasi.', 'We are ready to answer your questions and discuss collaboration opportunities.')}</p>
+              </div>
+              <span className="sec-num">SEC.13 / CONTACT.PORTAL</span>
+            </div>
+            <div className="contact-grid">
+              <div className="contact-info reveal">
+                <div className="contact-item">
+                  <div className="contact-icon">📍</div>
+                  <div>
+                    <h4>{t('Lokasi', 'Location')}</h4>
+                    <p>Margo Mulyo, Balikpapan Barat<br/>Kota Balikpapan, Kalimantan Timur<br/>Indonesia</p>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">📞</div>
+                  <div>
+                    <h4>{t('Telepon / WhatsApp', 'Phone / WhatsApp')}</h4>
+                    <p>+62 822-2397-2222</p>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">✉️</div>
+                  <div>
+                    <h4>Email</h4>
+                    <p>info@kimm-balikpapan.id</p>
+                  </div>
+                </div>
+                <div className="contact-item">
+                  <div className="contact-icon">🕐</div>
+                  <div>
+                    <h4>{t('Jam Operasional', 'Operating Hours')}</h4>
+                    <p>{t('Senin - Jumat: 08:00 - 17:00 WITA', 'Monday - Friday: 08:00 - 17:00 WITA')}<br/>{t('Sabtu: 08:00 - 12:00 WITA', 'Saturday: 08:00 - 12:00 WITA')}</p>
+                  </div>
+                </div>
+                <div className="contact-social">
+                  <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                  <a href="#" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
+                  <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+                  <a href="#" aria-label="TikTok"><i className="fab fa-tiktok"></i></a>
+                  <a href="https://wa.me/6282223972222" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+              <div className="contact-map reveal">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.123456789!2d116.8167!3d-1.2667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMargo+Mulyo+Balikpapan!5e0!3m2!1sen!2sid!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, borderRadius: '12px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokasi Kampung Inggris Mangrove Margo Mulyo"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* PARALLAX IMAGE BANNER 2 */}
         <div className="parallax-banner" style={{ backgroundImage: `url('https://image.qwenlm.ai/generated-images/307c2d65-a3ff-4ef1-ad78-d0e9cd7815fe/_result.png')` }}>
           <div className="parallax-overlay">
@@ -904,10 +1250,56 @@ export default function App() {
       {/* FOOTER */}
       <footer className="footer">
         <div className="wrap">
-          <p>© 2026 Kampung Inggris Mangrove Margo Mulyo · Balikpapan · Kalimantan Timur</p>
-          <p style={{ marginTop: '8px' }}>
-            <a href="#home">KIMM.SYS</a> · {t('Program Strategis Daerah', 'Regional Strategic Program')} · {t('Belajar ✦ Berwisata ✦ Berkarya ✦ Berdaya', 'Learn ✦ Explore ✦ Create ✦ Empower')}
-          </p>
+          <div className="footer-grid">
+            <div className="footer-col">
+              <h4>KIMM</h4>
+              <p>{t('Kampung Inggris Mangrove Margo Mulyo — Pusat pengembangan SDM berbasis edukasi, ekowisata, industri, dan pemberdayaan masyarakat.', 'Kampung Inggris Mangrove Margo Mulyo — Human resource development center based on education, eco-tourism, industry, and community empowerment.')}</p>
+              <div className="footer-social">
+                <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i className="fab fa-facebook"></i></a>
+                <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
+                <a href="#" aria-label="TikTok"><i className="fab fa-tiktok"></i></a>
+                <a href="https://wa.me/6282223972222" aria-label="WhatsApp"><i className="fab fa-whatsapp"></i></a>
+              </div>
+            </div>
+            <div className="footer-col">
+              <h4>{t('Navigasi', 'Navigation')}</h4>
+              <a href="#tentang">{t('Tentang Kami', 'About Us')}</a>
+              <a href="#program">{t('Program', 'Programs')}</a>
+              <a href="#video">{t('Video', 'Video')}</a>
+              <a href="#galeri">{t('Galeri', 'Gallery')}</a>
+              <a href="#tim">{t('Tim', 'Team')}</a>
+              <a href="#faq">FAQ</a>
+            </div>
+            <div className="footer-col">
+              <h4>{t('Program', 'Programs')}</h4>
+              <a href="#program">English Day</a>
+              <a href="#program">Industrial English Academy</a>
+              <a href="#program">Maritime English Academy</a>
+              <a href="#program">Eco English Camp</a>
+              <a href="#program">Mangrove Festival</a>
+              <a href="#program">IKN English Preparation</a>
+            </div>
+            <div className="footer-col">
+              <h4>{t('Kontak', 'Contact')}</h4>
+              <p>📍 Margo Mulyo, Balikpapan Barat</p>
+              <p>📞 +62 822-2397-2222</p>
+              <p>✉️ info@kimm-balikpapan.id</p>
+              <div className="footer-newsletter">
+                <h5>{t('Newsletter', 'Newsletter')}</h5>
+                <form onSubmit={(e) => { e.preventDefault(); showToast(t('✅ Berhasil berlangganan!', '✅ Subscribed!')); }}>
+                  <input type="email" placeholder={t('Email Anda', 'Your email')} required />
+                  <button type="submit" className="btn btn-g btn-sm">{t('Subscribe', 'Subscribe')}</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p>© 2026 Kampung Inggris Mangrove Margo Mulyo · Balikpapan · Kalimantan Timur</p>
+            <p>
+              <a href="#home">KIMM.SYS</a> · {t('Program Strategis Daerah', 'Regional Strategic Program')} · {t('Belajar ✦ Berwisata ✦ Berkarya ✦ Berdaya', 'Learn ✦ Explore ✦ Create ✦ Empower')}
+            </p>
+          </div>
         </div>
       </footer>
 
@@ -1086,6 +1478,22 @@ function KelompokDoc() {
         </tbody>
       </table>
     </>
+  );
+}
+
+// FAQ Item Component
+function FAQItem({ question, answer }: { question: string; answer: string }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className={`faq-item ${isOpen ? 'open' : ''}`}>
+      <button className="faq-question" onClick={() => setIsOpen(!isOpen)}>
+        <span>{question}</span>
+        <span className="faq-icon">{isOpen ? '−' : '+'}</span>
+      </button>
+      <div className="faq-answer">
+        <p>{answer}</p>
+      </div>
+    </div>
   );
 }
 
