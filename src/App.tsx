@@ -75,14 +75,14 @@ export default function App() {
   const t = (id: string, en: string) => lang === 'id' ? id : en;
 
   const galleryItems = [
-    { cat: 'belajar', titleId: 'Kelas English Conversation Dasar', titleEn: 'Basic English Conversation Class', img: 'https://picsum.photos/seed/english-conversation-class/600/800', meta: 'MARGO MULYO · 2026' },
-    { cat: 'wisata', titleId: 'English Mangrove Tour', titleEn: 'English Mangrove Tour', img: 'https://picsum.photos/seed/mangrove-tour-kalimantan/600/800', meta: 'MANGROVE MARGO MULYO · 2026' },
-    { cat: 'komunitas', titleId: 'English Day', titleEn: 'English Day', img: 'https://picsum.photos/seed/english-day-community/600/800', meta: 'MARGO MULYO · 2026' },
-    { cat: 'industri', titleId: 'Maritime English Session', titleEn: 'Maritime English Session', img: 'https://picsum.photos/seed/maritime-port-balikpapan/600/800', meta: 'BALIKPAPAN BARAT · 2026' },
-    { cat: 'komunitas', titleId: 'Musyawarah Pembentukan Kelompok', titleEn: 'Founding Assembly of the Group', img: 'https://picsum.photos/seed/community-assembly-village/600/800', meta: 'MARGO MULYO · 2026' },
-    { cat: 'wisata', titleId: 'Eco English Camp', titleEn: 'Eco English Camp', img: 'https://picsum.photos/seed/eco-camp-mangrove-night/600/800', meta: 'MANGROVE MARGO MULYO · 2026' },
-    { cat: 'industri', titleId: 'Industrial English Academy', titleEn: 'Industrial English Academy', img: 'https://picsum.photos/seed/industrial-academy-kariangau/600/800', meta: 'KARIANGAU · 2026' },
-    { cat: 'komunitas', titleId: 'Pelatihan UMKM & Digital Marketing', titleEn: 'MSME Training & Digital Marketing', img: 'https://picsum.photos/seed/umkm-market-training/600/800', meta: 'MARGO MULYO · 2026' },
+    { cat: 'belajar', titleId: 'Kelas English Conversation Dasar', titleEn: 'Basic English Conversation Class', img: 'https://image.qwenlm.ai/generated-images/c6c3c679-8281-465f-a692-948af2d12ed2/_result.png', meta: 'MARGO MULYO · 2026' },
+    { cat: 'wisata', titleId: 'English Mangrove Tour', titleEn: 'English Mangrove Tour', img: 'https://image.qwenlm.ai/generated-images/de880078-f0c0-43a6-95bf-61e080178af6/_result.png', meta: 'MANGROVE MARGO MULYO · 2026' },
+    { cat: 'komunitas', titleId: 'English Day & Komunitas', titleEn: 'English Day & Community', img: 'https://image.qwenlm.ai/generated-images/905bb3e7-5fea-4ae1-a06f-32fa3fac2462/_result.png', meta: 'MARGO MULYO · 2026' },
+    { cat: 'industri', titleId: 'Maritime English Session', titleEn: 'Maritime English Session', img: 'https://image.qwenlm.ai/generated-images/6ebb471d-5477-4706-9f9e-89bcae2e69ac/_result.png', meta: 'BALIKPAPAN BARAT · 2026' },
+    { cat: 'komunitas', titleId: 'Musyawarah Pembentukan Kelompok', titleEn: 'Founding Assembly of the Group', img: 'https://image.qwenlm.ai/generated-images/b093e4ba-1aa4-46a1-81e7-18b8a5bea397/_result.png', meta: 'MARGO MULYO · 2026' },
+    { cat: 'wisata', titleId: 'Eco English Camp', titleEn: 'Eco English Camp', img: 'https://image.qwenlm.ai/generated-images/5b1f7a8c-7c61-4295-85ec-c81b63d72631/_result.png', meta: 'MANGROVE MARGO MULYO · 2026' },
+    { cat: 'industri', titleId: 'Panorama Balikpapan & Industri', titleEn: 'Balikpapan Panorama & Industry', img: 'https://image.qwenlm.ai/generated-images/a963c7d0-a891-46b7-99e5-8d028da4f4ba/_result.png', meta: 'KARIANGAU · 2026' },
+    { cat: 'komunitas', titleId: 'Pelatihan UMKM & Digital Marketing', titleEn: 'MSME Training & Digital Marketing', img: 'https://image.qwenlm.ai/generated-images/307c2d65-a3ff-4ef1-ad78-d0e9cd7815fe/_result.png', meta: 'MARGO MULYO · 2026' },
   ];
 
   const filteredGallery = galleryFilter === 'all' ? galleryItems : galleryItems.filter(i => i.cat === galleryFilter);
@@ -116,6 +116,7 @@ export default function App() {
           <div className="nav-links">
             <a href="#tentang">{t('Tentang', 'About')}</a>
             <a href="#program">{t('Program', 'Programs')}</a>
+            <a href="#video">{t('Video', 'Video')}</a>
             <a href="#galeri">{t('Galeri', 'Gallery')}</a>
             <a href="#dokumen">{t('Dokumen', 'Docs')}</a>
             <a href="#gabung">{t('Gabung', 'Join')}</a>
@@ -132,6 +133,7 @@ export default function App() {
         <button className="mobile-menu-close" onClick={() => setMobileMenu(false)}>✕</button>
         <a href="#tentang" onClick={() => setMobileMenu(false)}>{t('Tentang', 'About')}</a>
         <a href="#program" onClick={() => setMobileMenu(false)}>{t('Program', 'Programs')}</a>
+        <a href="#video" onClick={() => setMobileMenu(false)}>{t('Video', 'Video')}</a>
         <a href="#galeri" onClick={() => setMobileMenu(false)}>{t('Galeri', 'Gallery')}</a>
         <a href="#dokumen" onClick={() => setMobileMenu(false)}>{t('Dokumen', 'Docs')}</a>
         <a href="#gabung" onClick={() => setMobileMenu(false)}>{t('Gabung', 'Join')}</a>
@@ -143,6 +145,7 @@ export default function App() {
       <main>
         {/* HERO */}
         <section className="hero" id="home">
+          <div className="hero-bg-img" style={{ backgroundImage: `url('https://image.qwenlm.ai/generated-images/9695da5f-61ba-4a67-aabb-3cb28d452804/_result.png')` }}></div>
           <div className="hero-glow"></div>
           <div className="wrap hero-grid">
             <div>
@@ -254,6 +257,9 @@ export default function App() {
                   '"In this vision, English is not the final destination; it is <span class="hl">a bridge to knowledge, employment opportunities, international communication, technology, networks, and confidence</span>."'
                 ) }}></p>
                 <p className="quote-sig">— SAPRANI · {t('PERWAKILAN PENGGAGAS & PENDIRI', 'REPRESENTATIVE OF THE INITIATORS & FOUNDERS')}</p>
+                <div className="about-img-wrapper" style={{ marginTop: '24px' }}>
+                  <img src="https://image.qwenlm.ai/generated-images/9695da5f-61ba-4a67-aabb-3cb28d452804/_result.png" alt={t('Ekosistem Mangrove Margo Mulyo', 'Mangrove Ecosystem Margo Mulyo')} loading="lazy" />
+                </div>
               </div>
               <ul className="v-list reveal">
                 <li><span className="vn">A1</span><p><span dangerouslySetInnerHTML={{ __html: t('<b>Mangrove</b> sebagai laboratorium lingkungan & ekowisata.', 'The <b>mangrove</b> as a laboratory for environmental learning & eco-tourism.') }}></span></p></li>
@@ -299,6 +305,14 @@ export default function App() {
           </div>
         </section>
 
+        {/* PARALLAX IMAGE BANNER */}
+        <div className="parallax-banner" style={{ backgroundImage: `url('https://image.qwenlm.ai/generated-images/a963c7d0-a891-46b7-99e5-8d028da4f4ba/_result.png')` }}>
+          <div className="parallax-overlay">
+            <h3 className="reveal">{t('Dari Mangrove untuk Dunia', 'From Mangrove to the World')}</h3>
+            <p className="reveal">{t('Balikpapan Barat · Kalimantan Timur · Indonesia', 'West Balikpapan · East Kalimantan · Indonesia')}</p>
+          </div>
+        </div>
+
         {/* SOLUSI / SOLUTION */}
         <section id="solusi">
           <div className="wrap split">
@@ -310,6 +324,7 @@ export default function App() {
             </div>
             <div className="split-right">
               <div className="card s-card reveal">
+                <img className="s-card-img" src="https://image.qwenlm.ai/generated-images/c6c3c679-8281-465f-a692-948af2d12ed2/_result.png" alt="English Learning Center" loading="lazy" />
                 <span className="snum">01</span>
                 <div>
                   <span className="tag tg">Foundation</span>
@@ -318,6 +333,7 @@ export default function App() {
                 </div>
               </div>
               <div className="card s-card reveal">
+                <img className="s-card-img" src="https://image.qwenlm.ai/generated-images/6ebb471d-5477-4706-9f9e-89bcae2e69ac/_result.png" alt="English for Industry Center" loading="lazy" />
                 <span className="snum">02</span>
                 <div>
                   <span className="tag tc">Job Ready</span>
@@ -326,6 +342,7 @@ export default function App() {
                 </div>
               </div>
               <div className="card s-card reveal">
+                <img className="s-card-img" src="https://image.qwenlm.ai/generated-images/de880078-f0c0-43a6-95bf-61e080178af6/_result.png" alt="Mangrove Eco Education Park" loading="lazy" />
                 <span className="snum">03</span>
                 <div>
                   <span className="tag tg">Eco-Learning</span>
@@ -334,6 +351,7 @@ export default function App() {
                 </div>
               </div>
               <div className="card s-card reveal">
+                <img className="s-card-img" src="https://image.qwenlm.ai/generated-images/307c2d65-a3ff-4ef1-ad78-d0e9cd7815fe/_result.png" alt="Creative Economy & UMKM Center" loading="lazy" />
                 <span className="snum">04</span>
                 <div>
                   <span className="tag td">Empowerment</span>
@@ -360,7 +378,7 @@ export default function App() {
             </div>
             <div className="bento">
               <div className="b-card w2 reveal">
-                <img src="https://picsum.photos/seed/english-day-festival-mangrove/900/600" alt="" loading="lazy" />
+                <img src="https://image.qwenlm.ai/generated-images/905bb3e7-5fea-4ae1-a06f-32fa3fac2462/_result.png" alt="English Day" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.01</span>
                   <h3>English Day</h3>
@@ -369,6 +387,7 @@ export default function App() {
                 </div>
               </div>
               <div className="b-card reveal">
+                <img src="https://image.qwenlm.ai/generated-images/6ebb471d-5477-4706-9f9e-89bcae2e69ac/_result.png" alt="Industrial English Academy" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.02</span>
                   <h3>Industrial English Academy</h3>
@@ -377,6 +396,7 @@ export default function App() {
                 </div>
               </div>
               <div className="b-card reveal">
+                <img src="https://image.qwenlm.ai/generated-images/a963c7d0-a891-46b7-99e5-8d028da4f4ba/_result.png" alt="Maritime English Academy" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.03</span>
                   <h3>Maritime English Academy</h3>
@@ -385,6 +405,7 @@ export default function App() {
                 </div>
               </div>
               <div className="b-card reveal">
+                <img src="https://image.qwenlm.ai/generated-images/b093e4ba-1aa4-46a1-81e7-18b8a5bea397/_result.png" alt="IKN English Preparation" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.06</span>
                   <h3>IKN English Preparation</h3>
@@ -393,6 +414,7 @@ export default function App() {
                 </div>
               </div>
               <div className="b-card reveal">
+                <img src="https://image.qwenlm.ai/generated-images/5b1f7a8c-7c61-4295-85ec-c81b63d72631/_result.png" alt="International Mangrove Festival" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.05</span>
                   <h3>International Mangrove Festival</h3>
@@ -401,7 +423,7 @@ export default function App() {
                 </div>
               </div>
               <div className="b-card w2 reveal">
-                <img src="https://picsum.photos/seed/eco-camp-mangrove-kalimantan/900/600" alt="" loading="lazy" />
+                <img src="https://image.qwenlm.ai/generated-images/de880078-f0c0-43a6-95bf-61e080178af6/_result.png" alt="Eco English Camp" loading="lazy" />
                 <div className="bc-in">
                   <span className="bnum">PRG.04</span>
                   <h3>Eco English Camp</h3>
@@ -592,6 +614,69 @@ export default function App() {
           </div>
         </section>
 
+        {/* VIDEO SECTION */}
+        <section id="video">
+          <div className="wrap">
+            <div className="sec-top reveal">
+              <div>
+                <span className="eyebrow">{t('10.5 // Video', '10.5 // Video')}</span>
+                <h2 className="st">
+                  <span className="lm">{t('Video', 'Video')} <span className="acc">{t('Profil Kampung Inggris', 'Kampung Inggris Profile')}</span></span>
+                </h2>
+                <p className="lead">{t('Saksikan potensi dan keindahan ekosistem Kampung Inggris Mangrove Margo Mulyo.', 'Witness the potential and beauty of the Kampung Inggris Mangrove Margo Mulyo ecosystem.')}</p>
+              </div>
+              <span className="sec-num">SEC.10.5 / MEDIA.PLAY</span>
+            </div>
+            <div className="video-grid reveal">
+              <div className="video-card">
+                <div className="video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/videoseries?list=PLrAXtmRdnEtfMnRh1SNMnGQXOyBGGlMbH"
+                    title={t('Video Profil Kampung Inggris Mangrove', 'Kampung Inggris Mangrove Profile Video')}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="video-info">
+                  <h4>{t('Profil Kampung Inggris Mangrove Margo Mulyo', 'Kampung Inggris Mangrove Margo Mulyo Profile')}</h4>
+                  <p>{t('Mengenal lebih dekat program, lokasi, dan visi pengembangan SDM di Balikpapan.', 'Get to know the program, location, and HR development vision in Balikpapan.')}</p>
+                </div>
+              </div>
+              <div className="video-card">
+                <div className="video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
+                    title={t('Ekosistem Mangrove Balikpapan', 'Balikpapan Mangrove Ecosystem')}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+                <div className="video-info">
+                  <h4>{t('Ekosistem Mangrove Kalimantan', 'Kalimantan Mangrove Ecosystem')}</h4>
+                  <p>{t('Keindahan dan pentingnya konservasi mangrove sebagai laboratorium lingkungan.', 'The beauty and importance of mangrove conservation as an environmental laboratory.')}</p>
+                </div>
+              </div>
+            </div>
+            <div className="video-highlights reveal">
+              <div className="vh-item">
+                <div className="vh-icon">🎬</div>
+                <h5>{t('Dokumentasi Kegiatan', 'Activity Documentation')}</h5>
+                <p>{t('Video pembelajaran, English Day, dan English Camp.', 'Learning videos, English Day, and English Camp.')}</p>
+              </div>
+              <div className="vh-item">
+                <div className="vh-icon">🌿</div>
+                <h5>{t('Eco-Tourism Mangrove', 'Eco-Tourism Mangrove')}</h5>
+                <p>{t('Tur virtual kawasan mangrove dan edukasi lingkungan.', 'Virtual tour of the mangrove area and environmental education.')}</p>
+              </div>
+              <div className="vh-item">
+                <div className="vh-icon">🎓</div>
+                <h5>{t('Testimoni Peserta', 'Participant Testimonials')}</h5>
+                <p>{t('Cerita sukses dan pengalaman belajar peserta program.', 'Success stories and learning experiences of program participants.')}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* DOKUMEN / DOCUMENTS */}
         <section id="dokumen">
           <div className="wrap">
@@ -698,6 +783,14 @@ export default function App() {
             </div>
           </div>
         </section>
+
+        {/* PARALLAX IMAGE BANNER 2 */}
+        <div className="parallax-banner" style={{ backgroundImage: `url('https://image.qwenlm.ai/generated-images/307c2d65-a3ff-4ef1-ad78-d0e9cd7815fe/_result.png')` }}>
+          <div className="parallax-overlay">
+            <h3 className="reveal">{t('Bergabung & Berdaya', 'Join & Empower')}</h3>
+            <p className="reveal">{t('SATU KELAS · SATU PERCAKAPAN · SATU KETERAMPILAN · SATU PELUANG', 'ONE CLASS · ONE CONVERSATION · ONE SKILL · ONE OPPORTUNITY')}</p>
+          </div>
+        </div>
 
         {/* GABUNG / JOIN */}
         <section id="gabung">
