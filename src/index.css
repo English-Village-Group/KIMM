@@ -134,6 +134,23 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.3));
+  transition: filter 0.3s ease;
+}
+
+.nav-logo-img:hover {
+  filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.5));
+}
+
 .nav-logo {
   font-family: var(--disp);
   font-weight: 700;
@@ -1405,6 +1422,13 @@ section {
   font-size: 16px;
   color: var(--text);
   margin: 0 0 16px 0;
+}
+
+.footer-logo {
+  height: 50px;
+  width: auto;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.2));
 }
 
 .footer-col p {

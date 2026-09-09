@@ -112,7 +112,9 @@ export default function App() {
       {/* Navigation */}
       <nav className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
-          <div className="nav-logo">KIMM</div>
+          <a href="#home" className="nav-logo-link">
+            <img src="/kimm-logo.svg" alt="KIMM Logo" className="nav-logo-img" />
+          </a>
           <div className="nav-links">
             <a href="#tentang">{t('Tentang', 'About')}</a>
             <a href="#program">{t('Program', 'Programs')}</a>
@@ -1252,7 +1254,7 @@ export default function App() {
         <div className="wrap">
           <div className="footer-grid">
             <div className="footer-col">
-              <h4>KIMM</h4>
+              <img src="/kimm-logo.svg" alt="KIMM Logo" className="footer-logo" />
               <p>{t('Kampung Inggris Mangrove Margo Mulyo — Pusat pengembangan SDM berbasis edukasi, ekowisata, industri, dan pemberdayaan masyarakat.', 'Kampung Inggris Mangrove Margo Mulyo — Human resource development center based on education, eco-tourism, industry, and community empowerment.')}</p>
               <div className="footer-social">
                 <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
