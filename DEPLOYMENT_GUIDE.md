@@ -1,237 +1,245 @@
-# 📋 PANDUAN DEPLOYMENT GITHUB PAGES
+# 📘 PANDUAN DEPLOY GITHUB PAGES
 
-## ⚠️ MASALAH UTAMA: Base Path
+## ❓ Kenapa Website Tidak Tampil?
 
-Website tidak tampil karena **Vite menggunakan absolute path** (`/assets/...`) tapi GitHub Pages deploy ke **subdirectory** (`/english-village-group/assets/...`).
+Website Vite + React butuh konfigurasi khusus untuk GitHub Pages. Berikut solusinya:
 
-## 🔧 SOLUSI: Edit vite.config.ts
+---
 
-### Langkah 1: Buka file `vite.config.ts`
+## ✅ SOLUSI CEPAT (5 Menit)
 
-```typescript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+### Langkah 1: Pastikan Repository Public
+1. Buka GitHub repository Anda
+2. Klik tab **Settings** (di kanan atas)
+3. Scroll ke bawah ke bagian **Danger Zone**
+4. Klik **Change visibility**
+5. Pilih **Public** → Konfirmasi
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  base: '/english-village-group/', // ← TAMBAHKAN BARIS INI
-})
-```
+### Langkah 2: Enable GitHub Pages
+1. Masih di **Settings**
+2. Klik menu **Pages** di sidebar kiri
+3. Di bagian **Build and deployment**:
+   - **Source**: pilih **GitHub Actions** (BUKAN "Deploy from a branch")
+4. Klik **Save**
 
-### Langkah 2: Ganti nama repository
-
-Jika nama repository Anda **BUKAN** `english-village-group`, ganti dengan nama repository Anda:
-
-**Contoh:**
-- Repository: `https://github.com/saprani-official/my-website`
-- Base path: `base: '/my-website/',`
-
-- Repository: `https://github.com/john-doe/kimm-site`
-- Base path: `base: '/kimm-site/',`
-
-### Langkah 3: Commit dan Push
-
+### Langkah 3: Push Code
 ```bash
-git add vite.config.ts
-git commit -m "fix: configure base path for GitHub Pages"
+git add .
+git commit -m "Setup GitHub Pages deployment"
 git push origin main
 ```
 
-### Langkah 4: Tunggu GitHub Actions
-
-1. Buka repository di GitHub
-2. Klik tab **"Actions"**
-3. Lihat workflow "Deploy to GitHub Pages"
-4. Tunggu sampai selesai (✓ hijau)
+### Langkah 4: Tunggu Deploy
+1. Buka tab **Actions** di repository
+2. Lihat workflow "Deploy to GitHub Pages" sedang berjalan
+3. Tunggu sampai muncul ✅ (biasanya 2-3 menit)
 
 ### Langkah 5: Akses Website
-
-Website Anda akan tersedia di:
+URL website Anda:
 ```
-https://USERNAME.github.io/REPOSITORY-NAME/
+https://[USERNAME].github.io/[REPO-NAME]/
 ```
 
-**Contoh:**
+Contoh:
 ```
 https://saprani-official.github.io/english-village-group/
 ```
 
 ---
 
-## 🎯 AKTIVASI GITHUB PAGES
+## 🔧 TROUBLESHOOTING
 
-Jika website masih tidak tampil setelah deploy:
+### ❌ Website Blank / Tidak Muncul
 
-1. **Buka Settings repository**
-   ```
-   https://github.com/USERNAME/REPOSITORY-NAME/settings
-   ```
+**Cek 1: Branch Name**
+- Pastikan branch utama bernama `main` atau `master`
+- Jika nama branch lain, edit file `.github/workflows/deploy.yml`:
+  ```yaml
+  on:
+    push:
+      branches: [ nama-branch-anda ]
+  ```
 
-2. **Klik menu "Pages"** (sidebar kiri)
+**Cek 2: GitHub Actions Enabled**
+- Buka tab **Actions**
+- Jika ada warning "Workflows aren't being run", klik **Enable workflows**
 
-3. **Pada bagian "Build and deployment":**
-   - Source: Pilih **"GitHub Actions"**
-   - (BUKAN "Deploy from a branch")
+**Cek 3: Build Success**
+- Buka tab **Actions**
+- Klik workflow terakhir
+- Lihat apakah ada error (merah) atau success (hijau)
+- Jika error, klik untuk lihat detail
 
-4. **Tunggu 1-2 menit**
+### ❌ Logo/Gambar Tidak Muncul
 
-5. **Refresh browser** dengan `Ctrl + Shift + R`
+**Solusi 1: Clear Cache**
+- Tekan `Ctrl + Shift + R` (Windows) atau `Cmd + Shift + R` (Mac)
+- Atau buka Incognito/Private mode
 
----
+**Solusi 2: Cek Console**
+- Tekan `F12` untuk buka Developer Tools
+- Klik tab **Console**
+- Lihat error 404 untuk file yang hilang
 
-## 🐛 TROUBLESHOOTING
+**Solusi 3: Pastikan File Ada**
+- File logo harus ada di folder `public/`:
+  - `public/kimm-logo.svg`
+  - `public/kimm-icon.svg`
 
-### ❌ Website blank / putih saja
+### ❌ Build Error di GitHub Actions
 
-**Penyebab:** Base path belum dikonfigurasi
-
-**Solusi:**
+**Error: "npm ci" failed**
 ```bash
-# Edit vite.config.ts
-# Tambahkan: base: '/nama-repository/',
-
-# Rebuild
-npm run build
-
-# Commit dan push
+# Solusi: Hapus node_modules dan package-lock.json
+rm -rf node_modules package-lock.json
+npm install
 git add .
-git commit -m "fix: add base path"
-git push origin main
+git commit -m "Fix dependencies"
+git push
 ```
 
-### ❌ Logo tidak muncul
-
-**Penyebab:** File logo tidak ter-copy ke dist
-
-**Solusi:**
-```bash
-# Pastikan file ada di public/
-ls public/kimm-logo.svg
-ls public/kimm-icon.svg
-
-# Rebuild
-npm run build
-
-# Check dist folder
-ls dist/kimm-logo.svg
-ls dist/kimm-icon.svg
-
-# Jika tidak ada, commit dan push lagi
-git add public/
-git commit -m "fix: add logo files"
-git push origin main
-```
-
-### ❌ CSS/JS tidak load (404)
-
-**Penyebab:** Base path salah
-
-**Solusi:**
-1. Cek nama repository di URL GitHub
-2. Pastikan `base` di `vite.config.ts` sama persis
-3. Jangan lupa tanda `/` di awal dan akhir
-
-**Benar:**
-```typescript
-base: '/english-village-group/',
-```
-
-**Salah:**
-```typescript
-base: 'english-village-group',  // ❌ kurang /
-base: '/english-village-group', // ❌ kurang / di akhir
-```
-
-### ❌ GitHub Actions gagal
-
-**Penyebab:** Berbagai kemungkinan
-
-**Solusi:**
-1. Buka tab **"Actions"** di GitHub
-2. Klik workflow yang gagal
-3. Lihat error message
-4. Common errors:
-   - `npm ci` gagal → Check `package-lock.json` ada
-   - Build error → Check console di lokal dulu
-   - Permission error → Check repository permissions
+**Error: "Build failed"**
+- Buka tab **Actions**
+- Klik workflow yang gagal
+- Lihat log error
+- Biasanya masalah di code TypeScript/CSS
 
 ---
 
-## 📱 TEST LOKAL SEBELUM PUSH
+## 📋 CHECKLIST DEPLOYMENT
 
-Sebelum push ke GitHub, test di lokal:
+Sebelum push, pastikan:
 
-```bash
-# Build production
-npm run build
-
-# Preview build
-npm run preview
-```
-
-Buka browser ke URL yang muncul (biasanya `http://localhost:4173`)
-
-Jika tampil sempurna di lokal, baru push ke GitHub.
+- [ ] Repository sudah **Public**
+- [ ] Branch utama bernama `main` atau `master`
+- [ ] File `.github/workflows/deploy.yml` ada
+- [ ] File `public/kimm-logo.svg` ada
+- [ ] File `public/kimm-icon.svg` ada
+- [ ] File `public/404.html` ada
+- [ ] File `public/.nojekyll` ada
+- [ ] GitHub Pages di-set ke **GitHub Actions**
+- [ ] Semua perubahan sudah di-commit dan push
 
 ---
 
-## 🌐 CUSTOM DOMAIN (Opsional)
+## 🎯 ALTERNATIF: Deploy Manual
 
-Jika ingin menggunakan domain sendiri (contoh: `kimm-balikpapan.id`):
+Jika GitHub Actions tidak bekerja, coba cara manual:
 
-### Langkah 1: Buat file `public/CNAME`
+### Cara 1: Deploy dari Branch
 
-```
-kimm-balikpapan.id
-```
+1. Build website lokal:
+   ```bash
+   npm run build
+   ```
 
-### Langkah 2: Update DNS
+2. Buat branch `gh-pages`:
+   ```bash
+   git checkout -b gh-pages
+   ```
 
-Di registrar domain Anda, tambahkan:
+3. Copy isi folder `dist/` ke root:
+   ```bash
+   # Windows (PowerShell)
+   Copy-Item -Path dist\* -Destination . -Recurse -Force
+   
+   # Mac/Linux
+   cp -r dist/* .
+   ```
 
-**Type:** CNAME  
-**Name:** www  
-**Value:** `USERNAME.github.io`
+4. Commit dan push:
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin gh-pages
+   ```
 
-**Type:** A  
-**Name:** @  
-**Value:** 
-- `185.199.108.153`
-- `185.199.109.153`
-- `185.199.110.153`
-- `185.199.111.153`
+5. Di Settings → Pages:
+   - **Source**: pilih **Deploy from a branch**
+   - **Branch**: pilih `gh-pages` → `/ (root)`
+   - Save
 
-### Langkah 3: Enable HTTPS
+### Cara 2: Pakai gh-pages Package
 
-1. Buka Settings → Pages
-2. Centang "Enforce HTTPS"
+1. Install package:
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. Tambah script di `package.json`:
+   ```json
+   "scripts": {
+     "deploy": "gh-pages -d dist"
+   }
+   ```
+
+3. Deploy:
+   ```bash
+   npm run build
+   npm run deploy
+   ```
 
 ---
 
-## ✅ CHECKLIST DEPLOYMENT
+## 🔍 VERIFIKASI DEPLOYMENT
 
-- [ ] Edit `vite.config.ts` → tambah `base: '/nama-repo/',`
-- [ ] Commit dan push perubahan
-- [ ] Tunggu GitHub Actions selesai (✓)
-- [ ] Aktifkan GitHub Pages di Settings
-- [ ] Pilih source: "GitHub Actions"
-- [ ] Test di browser (Ctrl + Shift + R)
-- [ ] Check logo muncul
-- [ ] Check semua halaman berfungsi
-- [ ] Test di mobile
+### Cek 1: Actions Tab
+- Buka tab **Actions**
+- Lihat workflow "Deploy to GitHub Pages"
+- Harus ada ✅ hijau
+
+### Cek 2: Pages Settings
+- Buka Settings → Pages
+- Lihat bagian "Your site is live at"
+- URL harus muncul
+
+### Cek 3: Akses URL
+- Buka URL: `https://[username].github.io/[repo]/`
+- Website harus tampil
+
+### Cek 4: Custom Domain (Optional)
+Jika punya domain sendiri:
+1. Di Settings → Pages
+2. Isi **Custom domain**: `www.domain-anda.com`
+3. Save
+4. Setup DNS di domain registrar
 
 ---
 
 ## 📞 BANTUAN
 
-Jika masih ada masalah:
+Jika masih bermasalah:
 
-1. **Check GitHub Actions logs** - lihat error detail
-2. **Browser Console** (F12) - lihat error JavaScript
-3. **Network tab** (F12) - cek file yang 404
-4. **Clear cache** - Ctrl + Shift + R
+1. **Screenshot error** di tab Actions
+2. **Screenshot console** browser (F12)
+3. **Screenshot Settings → Pages**
+4. Share ke:
+   - GitHub Issues di repository ini
+   - Atau hubungi developer
 
 ---
 
-**Good luck! 🚀**
+## 🎉 SUKSES!
+
+Jika website sudah tampil, selamat! 🎊
+
+Website Anda sekarang live di:
+```
+https://[username].github.io/[repo-name]/
+```
+
+### Share Website:
+- WhatsApp: `https://[username].github.io/[repo-name]/`
+- Instagram: Share link di bio
+- Facebook: Post link
+- LinkedIn: Share sebagai portfolio
+
+---
+
+**Catatan Penting:**
+- Setiap kali push ke branch `main`, website auto-update
+- Tunggu 2-3 menit setelah push untuk melihat perubahan
+- Clear cache browser jika tidak update (Ctrl+Shift+R)
+
+**Dibuat untuk:** Kampung Inggris Mangrove Margo Mulyo
+**Tanggal:** 2026

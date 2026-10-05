@@ -1,2 +1,1 @@
-# This file prevents GitHub Pages from using Jekyll
-# Vite builds are already optimized and don't need Jekyll processing
+# This file prevents GitHub Pages from ignoring files with underscores

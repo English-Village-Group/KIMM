@@ -1,118 +1,93 @@
-# 🌿 Kampung Inggris Mangrove Margo Mulyo - Website
+# 🌿 Kampung Inggris Mangrove Margo Mulyo
 
-Website resmi untuk program Kampung Inggris Mangrove Margo Mulyo, Balikpapan.
+Website resmi Kampung Inggris Mangrove Margo Mulyo - Future Human Capital Hub
 
 ## 🚀 Deploy ke GitHub Pages
 
-### ⚠️ PENTING: Konfigurasi Base Path
+Website ini sudah dikonfigurasi untuk auto-deploy ke GitHub Pages menggunakan GitHub Actions.
 
-Sebelum deploy, Anda **HARUS** mengubah file `vite.config.ts`:
+### Langkah-langkah Deploy:
 
-**Buka file `vite.config.ts` dan tambahkan baris `base`:**
+1. **Pastikan repository sudah public**
+   - Buka Settings repository
+   - Scroll ke bagian "Danger Zone"
+   - Klik "Change visibility" → pilih "Public"
 
-```typescript
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+2. **Enable GitHub Pages**
+   - Buka tab **Settings** di repository
+   - Pilih menu **Pages** di sidebar kiri
+   - Di bagian "Build and deployment":
+     - **Source**: pilih **GitHub Actions**
+   - Save perubahan
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/english-village-group/', // ← TAMBAHKAN INI (sesuaikan dengan nama repository Anda)
-})
-```
-
-**Cara mengetahui nama repository Anda:**
-- Lihat URL GitHub: `https://github.com/USERNAME/REPOSITORY-NAME`
-- Contoh: `https://github.com/saprani-official/english-village-group`
-- Maka base path: `/english-village-group/`
-
-### 📝 Langkah-langkah Deploy
-
-1. **Commit perubahan vite.config.ts:**
+3. **Push code ke GitHub**
    ```bash
-   git add vite.config.ts
-   git commit -m "fix: add base path for GitHub Pages"
+   git add .
+   git commit -m "Update website"
    git push origin main
    ```
 
-2. **GitHub Actions akan otomatis:**
-   - Build website
-   - Deploy ke GitHub Pages
-   - Tunggu 2-3 menit
+4. **Tunggu deployment selesai**
+   - Buka tab **Actions** di repository
+   - Lihat workflow "Deploy to GitHub Pages"
+   - Tunggu sampai selesai (biasanya 2-3 menit)
 
-3. **Akses website Anda:**
-   ```
-   https://USERNAME.github.io/REPOSITORY-NAME/
-   ```
-   
-   Contoh: `https://saprani-official.github.io/english-village-group/`
+5. **Akses website**
+   - URL: `https://[username].github.io/[repository-name]/`
+   - Contoh: `https://saprani-official.github.io/english-village-group/`
 
-### 🔧 Troubleshooting
+### Troubleshooting:
 
-#### Website tidak tampil / 404?
+**Website tidak muncul?**
+- Pastikan branch `main` atau `master` sudah ada
+- Cek tab Actions untuk melihat error
+- Pastikan repository sudah public
+- Tunggu 5-10 menit setelah deploy pertama
 
-✅ **Pastikan sudah menambahkan `base` di vite.config.ts**
+**Asset (logo/gambar) tidak muncul?**
+- Pastikan file ada di folder `public/`
+- Cek console browser untuk error 404
+- Clear cache browser (Ctrl+Shift+R)
 
-✅ **Cek GitHub Actions:**
-- Buka tab "Actions" di repository
-- Lihat apakah workflow berhasil (✓) atau gagal (✗)
+**Build error?**
+- Pastikan Node.js versi 20+
+- Jalankan `npm install` terlebih dahulu
+- Cek error message di tab Actions
 
-✅ **Aktifkan GitHub Pages:**
-- Buka Settings → Pages
-- Source: "GitHub Actions"
-- Tunggu deployment selesai
-
-✅ **Clear cache browser:**
-- Tekan `Ctrl + Shift + R` (Windows) atau `Cmd + Shift + R` (Mac)
-- Atau buka di Incognito/Private mode
-
-#### Logo tidak muncul?
-
-✅ **Pastikan file logo ada di folder `public/`:**
-- `public/kimm-logo.svg`
-- `public/kimm-icon.svg`
-
-✅ **Rebuild setelah push:**
-```bash
-npm run build
-git add .
-git commit -m "fix: add logo files"
-git push origin main
-```
-
-### 📂 Struktur File Penting
+### Struktur Project:
 
 ```
+├── public/              # Static assets (logo, images)
+│   ├── kimm-logo.svg
+│   └── kimm-icon.svg
+├── src/
+│   ├── App.tsx         # Main component
+│   ├── index.css       # Styles
+│   └── main.tsx        # Entry point
 ├── .github/
 │   └── workflows/
-│       └── deploy.yml          # GitHub Actions workflow
-├── public/
-│   ├── .nojekyll               # Prevent Jekyll processing
-│   ├── kimm-logo.svg          # Logo utama
-│   └── kimm-icon.svg          # Favicon
-├── src/
-│   ├── App.tsx                 # Main component
-│   └── index.css              # Styles
-├── index.html
+│       └── deploy.yml  # GitHub Actions workflow
+├── index.html          # HTML template
 ├── package.json
-└── vite.config.ts             # ⚠️ HARUS EDIT BASE PATH
+└── vite.config.ts
 ```
 
-### 🎨 Fitur Website
+### Fitur Website:
 
 - ✅ Bilingual (Indonesia/English)
-- ✅ Green Eco-Futuristic Theme
-- ✅ Responsive Design
-- ✅ Video Integration
-- ✅ Gallery dengan Filter
-- ✅ FAQ Accordion
-- ✅ Registration Form
-- ✅ Contact Section
-- ✅ Team Section
+- ✅ Responsive design
+- ✅ Green eco-futuristic theme
+- ✅ Video integration
+- ✅ Gallery dengan lightbox
+- ✅ FAQ accordion
+- ✅ Registration form
+- ✅ Contact section
+- ✅ Team profiles
 - ✅ Testimonials
-- ✅ Events Calendar
-- ✅ Document Library
+- ✅ Events calendar
+- ✅ Document library
 
-### 🛠️ Development Lokal
+### Development Lokal:
 
 ```bash
 # Install dependencies
@@ -128,16 +103,16 @@ npm run build
 npm run preview
 ```
 
-### 📞 Kontak
+### Teknologi:
 
-- **WhatsApp:** +62 822-2397-2222
-- **Email:** info@kimm-balikpapan.id
-- **Lokasi:** Margo Mulyo, Balikpapan Barat, Kalimantan Timur
-
-### 📄 Lisensi
-
-© 2026 Kampung Inggris Mangrove Margo Mulyo. All rights reserved.
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- GitHub Actions
 
 ---
 
-**Dibuat dengan ❤️ untuk masa depan SDM Balikpapan dan Kalimantan Timur**
+**Website URL:** [akan muncul setelah deploy]
+
+**Dikembangkan dengan:** ❤️ untuk Kampung Inggris Mangrove Margo Mulyo
